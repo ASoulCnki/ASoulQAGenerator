@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASoul QA 生成器</title>
+</head>
+
+<body>
+<div>主题&nbsp;<input value=""/>&nbsp;
+    <button onclick="showAnswer(document.querySelector('input').value)">生成QA</button>
+</div>
+<div id="answer"></div>
+</body>
+<script src="data.js"></script>
+<script defer>
+    // 根据 data 语料生成阿草回答
+    function generateAnswer(keyword) {
+        let flag = Math.floor(Math.random() * 10);
+        // 70% 以上的情况都是在道歉的样子呢
+        if (flag > 3) {
+            let humbleAnswer = data.humble[Math.floor(Math.random() * data.humble.length)].replaceAll("q", keyword);
+            let apologyAnswer = data.apology[Math.floor(Math.random() * data.apology.length)].replaceAll("q", keyword);
+            return `${data.alwaysStartsWith}${humbleAnswer}${apologyAnswer}。`;
+
+        }
+        let straightForwardAnswer = data.straightForward[Math.floor(Math.random() * data.straightForward.length)].replaceAll("q", keyword);
+        return `${data.alwaysStartsWith}${straightForwardAnswer}`;
+    }
+
+    function showAnswer(value) {
+        let answer = generateAnswer(value);
+        document.querySelector('#answer').innerHTML = `A: ${answer}`;
+    }
+</script>
+
+</html>
