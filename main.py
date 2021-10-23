@@ -1,3 +1,4 @@
+# coding:UTF-8
 import json
 import random
 
@@ -13,7 +14,7 @@ def read_json(file_name="data.json"):
 
 data = read_json("data.json")
 # 永远以"小伙伴你好！"开始
-always_starts_with = data["always_start_with"]
+always_starts_with = data["always_starts_with"]
 # 直接回答
 straightforward = data["straightforward"]
 # 先道歉
@@ -29,9 +30,8 @@ def generate_answer(key_word):
         humble_beginning = random.choice(humble).replace("q", key_word)
         apology_answer = random.choice(apology)
         return "%s%s%s。" % (always_starts_with, humble_beginning, apology_answer)
-    else:
-        straightforward_answer = random.choice(straightforward).replace("q", key_word)
-        return "%s %s" % (always_starts_with, straightforward_answer)
+    straightforward_answer = random.choice(straightforward).replace("q", key_word)
+    return "%s %s" % (always_starts_with, straightforward_answer)
 
 
 if __name__ == '__main__':
