@@ -30,9 +30,8 @@ def generate_answer(key_word):
         humble_beginning = random.choice(humble).replace("q", key_word)
         apology_answer = random.choice(apology)
         return "%s%s%s。" % (always_starts_with, humble_beginning, apology_answer)
-    else:
-        straightforward_answer = random.choice(straightforward).replace("q", key_word)
-        return "%s %s" % (always_starts_with, straightforward_answer)
+    straightforward_answer = random.choice(straightforward).replace("q", key_word)
+    return "%s %s" % (always_starts_with, straightforward_answer)
 
 
 if __name__ == '__main__':
