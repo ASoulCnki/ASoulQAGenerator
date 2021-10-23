@@ -1,3 +1,4 @@
+# coding:UTF-8
 import json
 import random
 
@@ -13,7 +14,7 @@ def read_json(file_name="data.json"):
 
 data = read_json("data.json")
 # 永远以"小伙伴你好！"开始
-always_starts_with = data["always_start_with"]
+always_starts_with = data["always_starts_with"]
 # 直接回答
 straightforward = data["straightforward"]
 # 先道歉
